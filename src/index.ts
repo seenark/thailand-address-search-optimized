@@ -1,4 +1,4 @@
-import { getAmphureAndProvinceByTambonId } from "./address-helper";
+import { getTambonAndAmphureAndProvinceByTambonId } from "./address-helper";
 import Zip from "./raw/zip_codes.json";
 import {
   getTambonListFromZipCodeGroup,
@@ -7,11 +7,6 @@ import {
 } from "./tambon";
 
 async function main() {
-  // const a = binarySearchByZipCode(Zip, "zip_code", 10100);
-  // console.log("a", a);
-  // extractZipCode();
-  // setOfZipCode();
-
   console.time("1");
   const tambons = getTambonsIdListFromZipCode(Zip, 10100);
   console.log("tambons", tambons);
@@ -27,7 +22,7 @@ async function main() {
   console.log("tambons3", tambons3);
   console.timeEnd("3");
 
-  const ap = getAmphureAndProvinceByTambonId(tambons[2].tumbon_id);
+  const ap = getTambonAndAmphureAndProvinceByTambonId(tambons[2].tumbon_id);
   console.log(ap);
 }
 
