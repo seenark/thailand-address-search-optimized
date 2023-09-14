@@ -1,7 +1,7 @@
 import { binarySearchByZipCode } from "./bs-filter";
 import { Option, Tambon, ZipCode, none, some } from "./types";
 import tambons from "./raw/thai_tambons.json";
-import ZipCodeGroup from "./raw/zip_code_group.json";
+import ZipCodeToTambonGroup from "./raw/zip_code_to_tambon_group.json";
 import Zip from "./raw/zip_codes.json";
 
 const tambonsMap = new Map<number, Tambon>(
@@ -27,7 +27,7 @@ export function getTambonByTambonId(id: number): Option<Tambon> {
 
 export function getTambonListFromZipCodeGroup(zipcode: number) {
   // const tp = await zipCodeGroupMap.get(zipcode)
-  const tp = ZipCodeGroup[zipcode] as Tambon[];
+  const tp = ZipCodeToTambonGroup[zipcode] as Tambon[];
   if (!tp) return none();
   return tp;
 }
